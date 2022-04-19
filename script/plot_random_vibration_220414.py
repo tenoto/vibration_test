@@ -36,10 +36,6 @@ df_gevs_component_elv = pd.read_excel('data/Random Vibration Enviroment.xlsx',
 	sheet_name='GEVS_componentELV',engine='openpyxl',skiprows=[0,1,3])
 print(df_gevs_component_elv)
 
-df_vegac_ssms_hex = pd.read_excel('data/Random Vibration Enviroment.xlsx',
-	sheet_name='VegaC_SSMS_Hexa_pos',engine='openpyxl',skiprows=[0,1,3])
-print(df_vegac_ssms_hex)
-
 #plt.style.use('script/default.mplstyle')
 
 fig = plt.figure(figsize=(12,9))
@@ -60,15 +56,14 @@ ax1.plot(df_cygnus['Frequency'],df_cygnus['PSD'],'b--',
 	linewidth=2,label='Cygnus')
 ax1.plot(df_slingshot['Frequency'],df_slingshot['MPE PSD'],'k--',
 	linewidth=2,label='SlingShot')
-#ax1.plot(df_vegac_top['Frequency'],df_vegac_top['MPE PSD'],'g--',
-#	linewidth=2,label='Vega-C top')
-#ax1.plot(df_vegac_main['Frequency'],df_vegac_main['MPE PSD'],'c--',
-#	linewidth=2,label='Vega-C main')
-#ax1.plot(df_vegac_hexagon['Frequency'],df_vegac_hexagon['MPE PSD'],'m--',#	linewidth=2,label='Vega-C hexagon')
-#ax1.plot(df_gevs_component['Frequency'],df_gevs_component['MPE PSD'],'b-.',
-#	linewidth=4,label='GEVS component (min)')
-ax1.plot(df_vegac_ssms_hex['Frequency'],df_vegac_ssms_hex['MPE PSD'],'c--',	linewidth=2,label='Vega-C SSMS Hexpos (manual Table 4.3.3.c)')
-ax1.plot(df_vegac_ssms_hex['Frequency'],2.25*df_vegac_ssms_hex['MPE PSD'],'c-.',linewidth=2,label='Vega-C SSMS Hexpos x 2.25 (PFT)')
+ax1.plot(df_vegac_top['Frequency'],df_vegac_top['MPE PSD'],'g--',
+	linewidth=2,label='Vega-C top')
+ax1.plot(df_vegac_main['Frequency'],df_vegac_main['MPE PSD'],'c--',
+	linewidth=2,label='Vega-C main')
+ax1.plot(df_vegac_hexagon['Frequency'],df_vegac_hexagon['MPE PSD'],'m--',
+	linewidth=2,label='Vega-C hexagon')
+ax1.plot(df_gevs_component['Frequency'],df_gevs_component['MPE PSD'],'b-.',
+	linewidth=4,label='GEVS component (min)')
 ax1.plot(df_gevs_component_elv['Frequency'],df_gevs_component_elv['MPE PSD']/1.995,'r-',
 	linewidth=4,label='GEVS component (ELV) acceptance - 3dB')
 
